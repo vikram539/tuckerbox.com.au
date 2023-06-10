@@ -1,0 +1,50 @@
+<section class="contents">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="txt-formation" *ngFor="let pageData of pageArrayData">                    
+					<h2 *ngIf="pageData.text_type == 'h2'">{{ pageData.text }}</h2>              
+					<p *ngIf="pageData.text_type == 'p' && pageData.text_type != ''">{{ pageData.text }}</p>                     
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class='features pt-4 pb-4 mt-4 mb-4'>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+				<div class="guest-features">
+                    <ng-container *ngFor="let pageData of getFacilityServicesData">
+                        <h3 *ngIf="pageData.text_type == 'h3'">{{ pageData.text }}<hr> </h3> 
+                        <h4 *ngIf="pageData.text_type == 'h4'">{{ pageData.text }}</h4>          
+                        <p *ngIf="pageData.text_type == 'p' && pageData.text != ''">{{ pageData.text }}</p>
+					</ng-container>					
+					<ul class="d-inline-flex flex-wrap mt-4">
+						<ng-container *ngFor="let pageData of getFacilityServicesData">
+							<li class='w-50'  *ngIf="pageData.text_type == 'li' && pageData.text != ''">
+								<i class="bi bi-check2-circle"></i><label>{{ pageData.text }}</label>
+							</li>
+						</ng-container>
+					</ul>
+                         
+                                        
+				</div>
+			</div>
+			<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+				<div class="guest-features ">
+				    <h3></h3>
+					<hr>
+                    <h4 class='text-left'></h4>
+                    <p class='text-left'></p>
+				</div>
+			</div>	
+		    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 mb-4">
+                <ul class="d-flex flex-wrap icon-img facility">
+                <hr>
+                    <li class=''><span></span></li>
+                </ul>
+            </div> -->
+		</div>
+	</div>
+</section>

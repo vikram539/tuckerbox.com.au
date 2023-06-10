@@ -1,0 +1,108 @@
+<section class="contents">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="txt-formation" *ngFor="let pageData of pageArrayData">                    
+					<h2 *ngIf="pageData.text_type == 'h2'">{{ pageData.text }}</h2>              
+					<p *ngIf="pageData.text_type == 'p' && pageData.text_type != ''">{{ pageData.text }}</p>                     
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="bg-light mb-4 mt-4 pt-4 pb-4">
+	<div class="container">
+		<div class="row">            
+            <div class="mb-4 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                <div class='desc-wrap'>
+                    <div class="description mb-2">                        
+                        <ng-container *ngFor="let roomsData of gardencitymotorinn">
+                            <ng-container *ngIf="roomsData.text_type == 'h2' && roomsData.text != ''">
+                                <h2 class='text-left mb-0 text-capitalize' style='font-weight:500;'>{{ roomsData.text }}</h2>
+                            </ng-container>
+                            <ng-container *ngIf="roomsData.text_type == 'h4' && roomsData.text != ''">
+                                <h4 class='text-left'>{{ roomsData.text }}</h4><hr>
+                            </ng-container> 
+                            <ng-container *ngIf="roomsData.text_type == 'p' && roomsData.text != ''">
+                                <p class='text-left mb-0 text-capitalize' style='font-weight:500;'>{{ roomsData.text }}</p>
+                            </ng-container>
+                        </ng-container>
+
+                        <ul class="d-flex list-unstyled flex-wrap mb-0">
+                            <ng-container  *ngFor="let roomsData of gardencitymotorinn">                               
+                                <li *ngIf="roomsData.text_type == 'li' && roomsData.text != '' ">
+                                    <i class="bi bi-check2-circle"></i>&nbsp;{{ roomsData.text }}
+                                </li>
+                            </ng-container>            
+                        </ul>
+                    </div>                    
+                    <div class="owl-btn">
+                        <ng-container  *ngFor="let roomsData of gardencitymotorinn">
+                            <a *ngIf="roomsData.text_type == 'href' && roomsData.text != '' " href="{{ roomsData.text }}" title="Read More" target="_blank">read more</a> 
+                        </ng-container> 
+                    </div>
+                </div>
+            </div>            
+            <div class="mb-4 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                <div class='desc-wrap'>
+                    <div class="owle-photo mb-2"> 
+                        <ngx-slick-carousel class="carousel" 
+                        #slickModal="slick-carousel" 
+                            [config]="slideConfig">
+                            <div ngxSlickItem *ngFor="let slide of gardencitymotorinnImg" class="slide">
+                                <img src="https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{gardencitymotorinnName}}/{{ slide.small_img }}" alt="" width="100%">
+                            </div>
+                        </ngx-slick-carousel>      
+                    </div>
+                </div>
+            </div> 
+            <!-- Room Five -->
+		</div>
+		<div class="row">            
+            <div class="mb-4 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                <div class='desc-wrap'>
+                    <div class="description mb-2">                        
+                        <ng-container *ngFor="let roomsData of tumutvalleymotel">
+                            <ng-container *ngIf="roomsData.text_type == 'h2' && roomsData.text != ''">
+                                <h2 class='text-left mb-0 text-capitalize' style='font-weight:500;'>{{ roomsData.text }}</h2>
+                            </ng-container>
+                            <ng-container *ngIf="roomsData.text_type == 'h4' && roomsData.text != ''">
+                                <h4 class='text-left'>{{ roomsData.text }}</h4><hr>
+                            </ng-container> 
+                            <ng-container *ngIf="roomsData.text_type == 'p' && roomsData.text != ''">
+                                <p class='text-left mb-0 text-capitalize' style='font-weight:500;'>{{ roomsData.text }}</p>
+                            </ng-container>
+                        </ng-container>
+
+                        <ul class="d-flex list-unstyled flex-wrap mb-0">
+                            <ng-container  *ngFor="let roomsData of tumutvalleymotel">                               
+                                <li *ngIf="roomsData.text_type == 'li' && roomsData.text != '' ">
+                                    <i class="bi bi-check2-circle"></i>&nbsp;{{ roomsData.text }}
+                                </li>
+                            </ng-container>            
+                        </ul>
+                    </div>                    
+                    <div class="owl-btn"> 
+                        <ng-container  *ngFor="let roomsData of tumutvalleymotel">
+                            <a *ngIf="roomsData.text_type == 'href' && roomsData.text != '' " href="{{ roomsData.text }}" title="Read More" target="_blank">read more</a> 
+                        </ng-container> 
+                    </div>
+                </div>
+            </div>            
+            <div class="mb-4 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                <div class='desc-wrap'>
+                    <div class="owle-photo mb-2"> 
+                        <ngx-slick-carousel class="carousel" 
+                        #slickModal="slick-carousel" 
+                            [config]="slideConfig">
+                            <div ngxSlickItem *ngFor="let slide of tumutvalleymotelImg" class="slide">
+                                <img src="https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{tumutvalleymotelName}}/{{ slide.small_img }}" alt="" width="100%">
+                            </div>
+                        </ngx-slick-carousel>      
+                    </div>
+                </div>
+            </div> 
+            <!-- Room Five -->
+		</div>
+    </div>
+</section>

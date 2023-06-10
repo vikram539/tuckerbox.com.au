@@ -1,0 +1,20 @@
+#b247SearchBoxContainer{
+    background:$widget-bg; 
+    padding:0.1rem 0 0 !important; 
+    margin-bottom:0rem; 
+}
+.searchbox__clickable a{
+    background-color:#000 !important;
+}
+.sbx-container{
+    margin-bottom:0;
+} 
+
+.widgetPos{
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    isolation: isolate;
+}

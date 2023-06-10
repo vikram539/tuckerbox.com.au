@@ -1,0 +1,44 @@
+<section class="bg-light mt-4 mb-4 pt-4 pb-4">
+	<div class="container">
+	    <div class="row">
+			<div class="col-12">
+				<div class="txt-formation">
+					<h2>Facilities & Services</h2>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 receptions">
+				<hr>
+				<div class='front-desk'>
+                    <ng-container *ngFor="let ReceptionData of getReceptionData">                    
+                        <h4 *ngIf="ReceptionData.text_type == 'h4'">{{ReceptionData.text}}</h4>
+                        <p class='common-p' *ngIf="ReceptionData.text_type == 'checkin_time'">
+                            <strong>check-In : </strong>{{ReceptionData.text}}
+                        </p>
+                        <p class='common-p' *ngIf="ReceptionData.text_type == 'checkout_time'">
+                            <strong>Check-Out : </strong>{{ReceptionData.text}}
+                        </p>
+                        <p class='common-p' *ngIf="ReceptionData.text_type == 'reception_hours'">
+                            <strong>reception hours : </strong>{{ReceptionData.text}}
+                        </p>
+                        <p class='common-p' *ngIf="ReceptionData.text_type == 'after_hours'">
+                            <strong>after hours : </strong>{{ReceptionData.text}}
+                            <ng-container *ngFor="let menuItems of singleDataArray">
+								{{menuItems.hotel_phone }}
+							</ng-container>	
+                        </p>
+                    </ng-container>
+				</div>
+			</div>	
+		    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
+                <ul class="d-flex flex-wrap icon-img">
+                    <hr>
+                    
+                    <li class="" *ngFor="let data of getFacilityIconsData">
+                        <img src="https://swaggersmotorinnyass.com.au/Tuckerbox/images/facility-img-icons/{{data.facility_img}}"  alt='{{ data.facility_name }}' title='{{ data.facility_name }}' />
+                        <span>{{ data.facility_alt_name }}</span>
+                    </li>
+                </ul>
+		    </div>
+		</div>
+	</div>
+</section>

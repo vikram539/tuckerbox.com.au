@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400&family=Nunito:wght@400;600&display=swap");
+/*
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Nunito', sans-serif;
+*/
+
+*{margin: 0; padding: 0; border: 0px; box-sizing: border-box;}
+*::first-letter{
+    text-transform: uppercase;
+}
+body{
+    font-size: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+    background: url("https://swaggersmotorinnyass.com.au/Tuckerbox/images/body-bg.jpg") no-repeat top left;
+    background-attachment: fixed;
+    background-size: cover;
+}
+h2{
+    color: $primaryColor;
+}
+h2, h3, h4{text-align: center; font-family:$body-font;}
+p{font-family:$sane-serif; text-align:center; font-weight:400;}
+h4>p{color:#000000; text-align:left; text-transform:capitalize; 
+font-size: 1rem;
+font-weight: 400;}
+h4>p img{   padding: 0.2rem;}
+h2{text-transform: uppercase; font-weight: 600; margin-bottom: 2rem;}
+h3{ color: #000000;}
+h4{color: $secondaryColor;   font-size: 1.2rem;}
+p{line-height: 2rem;}
+p:first-letter{text-transform:uppercase;}
+a{text-decoration:none; color:#000000;}  
+li{padding-bottom: 1rem;}
+
+.container
+{
+	max-width: 1270px; 	
+}
+.btn-danger
+{
+    background-color: #21a8e0;
+    border-color: #21a8e0;
+}
+.contents{
+    // background:#ffffff; 
+    margin: 3rem 0; }
+.txt-formation
+{
+	 perspective: 1000px;
+}
+
+.hrs
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+	transform-style:preserve-3d;
+	animation:rotatehr linear 2s infinite;
+}
+.bg-light{
+    background-color: #f1f1f1 !important;
+}

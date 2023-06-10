@@ -1,0 +1,83 @@
+<div class="sticky-header header-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="_topbar">
+					<ul class='col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-10 pr-0'>
+                        <li>&nbsp;
+							<ng-container *ngFor="let menuItems of singleDataArray">
+								<a href='mailto:{{ menuItems.hotel_email }}' title='topbar_name' *ngIf="menuItems.hotel_email">
+									<i class="bi bi-envelope-at"></i>&nbsp;
+									{{ menuItems.hotel_email }}	
+								</a>
+							</ng-container>
+						</li>
+                        <li>
+							<ng-container *ngFor="let menuItems of singleDataArray">
+								<a  *ngIf="menuItems.hotel_phone" href='tel:{{menuItems.hotel_phone }}'><i class="bi bi-telephone-fill"></i> &nbsp;{{menuItems.hotel_phone }}</a>
+							</ng-container>							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<!--<div class="iconWrap">
+			<span class="iconBar"></span>
+			<span class="iconBar"></span>
+			<span class="iconBar"></span>
+		</div>
+		 <div class="menuItemsWrap">
+			<ul>
+				<li *ngFor="let menuItems of getAllData; let val = index" >
+					<a routerLink="/" title='' *ngIf=" menuItems.page_ID == 1" routerLinkActive="active" 
+					[routerLinkActiveOptions]={exact:true}>Home</a>
+					<a routerLink="/{{ menuItems.page_name | replace }}" title='' *ngIf=" menuItems.page_ID != 1 menu" routerLinkActive="active">{{ menuItems.page_name }}</a>
+				</li>	 
+				
+				<li class='booknow'>
+					<ng-container *ngFor="let menuItems of singleDataArray">
+						<a href="{{menuItems.hotel_book_btn }}" title='' target="_blank">book now</a>
+					</ng-container>
+				</li>
+			</ul>		
+		</div> -->
+	
+	<div class="top-primary-menu">	
+		<div class="container">
+		    <div class="row">
+		        <div class="col-12">
+		            <nav class="navbar navbar-dark navbar-expand-lg">
+                        <a routerLink="/" class="navbar-brand">
+							<ng-container *ngFor="let menuItems of singleDataArray">
+								<img src="https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{ menuItems.header_logo }}" alt="Logo" title="Home">
+							</ng-container>
+                            <!-- <span><b>A</b>dvance <b>M</b>otel <small>Wangaratta</small></span> -->
+                        </a>
+                        
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						  </button>
+                        <div class="collapse navbar-collapse" id="navigation">
+                            <ul class="navbar-nav ms-auto primary-link">
+                                <li class='nav-link' *ngFor="let menuItems of getAllData; let val = index" >
+                                    <a routerLink="/" title='' *ngIf=" menuItems.page_ID == 1" routerLinkActive="active" 
+									[routerLinkActiveOptions]={exact:true}>Home</a>
+                                    <a routerLink="/{{ menuItems.page_name | replace }}" title='' *ngIf=" menuItems.page_ID != 1 menu" routerLinkActive="active">{{ menuItems.page_name }}</a>
+                                </li>	 
+								
+								<li class='nav-link booknow'>
+									<ng-container *ngFor="let menuItems of singleDataArray">
+										<a href="{{menuItems.hotel_book_btn }}" title='' target="_blank">book now</a>
+									</ng-container>
+								</li>
+                            </ul>
+                        </div>
+		            </nav>
+		        </div>
+		    </div>
+		</div>
+		<!-- <div class="bookdirect"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&emsp;<span>COVID-19: Booking With Flexibility While Travelling Safely</span></div> -->
+	</div>
+</div>

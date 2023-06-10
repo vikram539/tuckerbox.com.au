@@ -1,0 +1,65 @@
+.header-bg{
+    background:$primaryColor;
+}
+._topbar{
+    display:flex; 
+    align-items:center; 
+    flex-flow:row wrap; 
+    justify-content: flex-end;
+    ul{
+        display: flex; 
+        flex-flow: row wrap; 
+        align-items: center; 
+        justify-content: flex-end; 
+        list-style: none; 
+        margin:0;
+        li, a{
+            text-transform: uppercase; 
+            padding: 0.5rem 0.3rem; 
+            text-decoration: none;
+            font-size:0.85rem; 
+            font-weight:400;
+            color: #fff;
+        }
+        li:hover a,._topbar>ul>li:focus a,._topbar>ul>li:link a{
+            color:#c1c1c1;
+        }
+    }
+}
+.top-primary-menu{background:#fff; /*height:80px;*/}
+.menu-resize{
+    height:50px; 
+    position:fixed;
+    top:0; 
+    left:0; 
+    z-index:9999; 
+    width:100%; 
+    animation:resize 0.5s forwards; 
+    background :$primaryColor;
+    .navbar{  
+        padding-top: 0; 
+        padding-bottom: 0;
+    }
+    .container{
+        max-width:100%
+    } 
+    .navbar a{
+	    color: #fff;
+        
+    }
+}
+@keyframes resize{
+	0%{transform:translateY(-40px)};
+	100%{transform:translateY(0px)};	
+}
+
+.bookdirect{
+    // background: $topstrip-bg;
+    padding: 0.2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+	// color:$topstrip-color;
+    span{
+        font-weight:400;
+    }
+}

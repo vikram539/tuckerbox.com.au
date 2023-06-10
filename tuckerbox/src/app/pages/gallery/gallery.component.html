@@ -1,0 +1,17 @@
+<section class="contents">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="txt-formation" *ngFor="let pageData of pageArrayData">                    
+					<h2 *ngIf="pageData.text_type == 'h2'">{{ pageData.text }}</h2>              
+					<p *ngIf="pageData.text_type == 'p' && pageData.text_type != ''">{{ pageData.text }}</p>                     
+				</div>
+			</div>
+            <ng-container *ngFor="let image of _albums; let i=index">
+                <div class="col-12 col-lg-4 mb-4 mt-4">
+                    <img src={{image.thumb}} (click)="open(i)"  class="img-fluid" />
+                </div>
+            </ng-container>
+		</div>
+	</div>
+</section>

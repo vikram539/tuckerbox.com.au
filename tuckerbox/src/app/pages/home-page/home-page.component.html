@@ -1,0 +1,52 @@
+<app-home-slider></app-home-slider>
+<section class="contents">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="txt-formation" *ngFor="let pageData of pageArrayData">                    
+					<h2 *ngIf="pageData.text_type == 'h2'">{{ pageData.text }}</h2>              
+					<p *ngIf="pageData.text_type == 'p' && pageData.text_type != ''">{{ pageData.text }}</p>                     
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<app-facility-services></app-facility-services>
+<app-room-list-thumb></app-room-list-thumb>
+<section class="map pt-4 pb-4 mt-4 mb-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 pt-4 pb-4 mt-4 mb-4">
+				<div class="txt-formation">	
+					<ng-container *ngFor="let item of locationPageArray">
+						<h2 *ngIf="item.text_type == 'h2'">{{ item.text }}</h2>
+					</ng-container>				
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+				<div class="map-location">
+					<ng-container *ngFor="let item of locationPageImgArray">
+						<img *ngIf="item.img_order == 1 && item.img_for_slider == 1" src='https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{LocationRoomName}}/{{ item.small_img }}' alt='' class='img-fluid' />
+					</ng-container>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+				<div class="map-location">
+					<ng-container *ngFor="let item of locationPageArray">
+						<h4 *ngIf="item.text_type == 'h4'">{{ item.text }}</h4>
+						<p  *ngIf="item.text_type == 'p'" class='text-left'>{{ item.text }}</p>
+					</ng-container>
+					
+					<ul>
+						<ng-container *ngFor="let item of locationPageArray">
+							<li *ngIf="item.text_type == 'li'">
+								<i class='fa fa-check' aria-hidden='true'></i>
+								<label>{{ item.text }}</label>
+							</li>
+						</ng-container>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
