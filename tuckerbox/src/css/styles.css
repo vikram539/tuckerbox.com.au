@@ -21,7 +21,7 @@ body {
   margin: 0;
   font-family: "Fira Sans", sans-serif;
   font-weight: 300;
-  background: url("https://swaggersmotorinnyass.com.au/Tuckerbox/images/body-bg.jpg") no-repeat top left;
+  background: #d5eaed;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -64,7 +64,7 @@ h3 {
 }
 
 h4 {
-  color: linear-gradient(rgb(41, 130, 198) 0px, rgb(30, 108, 159) 100%);
+  color: linear-gradient(rgb(0, 25, 18) 0px, rgb(10, 199, 146) 100%);
   font-size: 1.2rem;
 }
 
@@ -133,7 +133,6 @@ li {
   margin: 0;
 }
 ._topbar ul li, ._topbar ul a {
-  text-transform: uppercase;
   padding: 0.5rem 0.3rem;
   text-decoration: none;
   font-size: 0.85rem;
@@ -260,6 +259,9 @@ a.navbar-brand img {
 .primary-link .booknow a {
   color: #ffffff;
 }
+.primary-link .booknow:hover a {
+  color: #c1c1c1 !important;
+}
 
 .menu-resize {
   height: 50px;
@@ -280,6 +282,9 @@ a.navbar-brand img {
 }
 .menu-resize .navbar .booknow a {
   color: #ffffff;
+}
+.menu-resize .navbar .booknow:hover a {
+  color: #c1c1c1 !important;
 }
 .menu-resize .navbar img {
   max-height: 40px;
@@ -526,7 +531,7 @@ a.navbar-brand img {
   left: 50%;
   color: #fff;
   transform: translate(-50%, -50%);
-  background: linear-gradient(rgb(41, 130, 198) 0px, rgb(30, 108, 159) 100%);
+  background: linear-gradient(rgb(0, 25, 18) 0px, rgb(10, 199, 146) 100%);
   text-transform: uppercase;
   padding: 0.5rem 1rem;
   text-decoration: none;
@@ -549,7 +554,7 @@ a.navbar-brand img {
 }
 
 .features ul > li :where(i) {
-  color: linear-gradient(rgb(41, 130, 198) 0px, rgb(30, 108, 159) 100%);
+  color: linear-gradient(rgb(0, 25, 18) 0px, rgb(10, 199, 146) 100%);
 }
 
 .guest-features > a.btn {
@@ -635,7 +640,7 @@ a.navbar-brand img {
 }
 
 .owl-btn a:nth-of-type(1) {
-  background: linear-gradient(rgb(41, 130, 198) 0px, rgb(30, 108, 159) 100%);
+  background: linear-gradient(rgb(0, 25, 18) 0px, rgb(10, 199, 146) 100%);
   margin-right: 2rem;
 }
 
@@ -672,7 +677,7 @@ footer [class*=row] {
 .footer-logo ul > li {
   list-style: none;
   padding-bottom: 0;
-  background: linear-gradient(rgb(41, 130, 198) 0px, rgb(30, 108, 159) 100%);
+  background: linear-gradient(rgb(0, 25, 18) 0px, rgb(10, 199, 146) 100%);
   margin-right: 1rem;
   border-radius: 50%;
   height: 42px;

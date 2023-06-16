@@ -30,9 +30,9 @@ export class GalleryComponent {
           dirName = dirName.replace(/\s/g, "-").toLowerCase();
           let imgName = data[i]['small_img'];
           
-          const src = 'https://swaggersmotorinnyass.com.au/Tuckerbox/images/'+dirName+'/'+imgName; 
+          const src = 'https://www.tuckerbox.com.au/images/'+dirName+'/'+imgName; 
           const caption = data[i].pagename; 
-          const thumb = 'https://swaggersmotorinnyass.com.au/Tuckerbox/images/'+dirName+'/'+imgName; 
+          const thumb = 'https://www.tuckerbox.com.au/images/'+dirName+'/'+imgName; 
           const album = { src: src, caption: caption, thumb: thumb }; 
     
           this._albums.push(album); 

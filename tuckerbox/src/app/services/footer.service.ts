@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class FooterService {
 
-  footerMenuApiUrl = "https://swaggersmotorinnyass.com.au/Tuckerbox/workApi/getFooterMenus.php";
+  footerMenuApiUrl = "https://www.tuckerbox.com.au/workApi/getFooterMenus.php";
   
   constructor(private httpRequest: HttpClient) { }
   

@@ -74,6 +74,11 @@ a.navbar-brand{
         background: $primaryColor;
         a{
             color:#ffffff;
+        }        
+        &:hover{
+            a{
+                color: #c1c1c1 !important;
+            }
         } 
     }
 }
@@ -97,6 +102,11 @@ a.navbar-brand{
         a{
             color:#ffffff;
         } 
+        &:hover{
+            a{
+                color: #c1c1c1 !important;
+            }
+        }
     }
        img{
             max-height:40px;

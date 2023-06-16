@@ -12,52 +12,66 @@
 </section>
 <section class="bg-light mb-4 mt-4 pt-4 pb-4">
     <div class="container">    
-        <div class="row">            
-            <div class="mb-4 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
-                <div class='desc-wrap'>
-                    <div class="description mb-2">                        
-                        <ng-container *ngFor="let roomsData of roomOne">
-                            <ng-container *ngIf="roomsData.text_type == 'h2' && roomsData.text != ''">
-                                <h2 class='text-left mb-0 text-capitalize' style='font-weight:500;'>{{ roomsData.text }}</h2>
-                            </ng-container>
-                            <ng-container *ngIf="roomsData.text_type == 'h4' && roomsData.text != ''">
-                                <h4 class='text-left'>{{ roomsData.text }}</h4><hr>
-                            </ng-container>
-                        </ng-container>
+        <div class="row">
+            <ng-container *ngFor="let totalRoom of roomTypeArray">                
+                <ng-container *ngIf="totalRoom['roomId'] != ''">            
+                    <div class="mb-4 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                        <div class='desc-wrap'>
+                            <div class="description mb-2">                        
+                                <!-- <ng-container *ngFor="let roomsData of roomOne">
+                                    <ng-container *ngIf="roomsData.text_type == 'h2' && roomsData.text != ''">
+                                        <h2 class='text-left mb-0 text-capitalize' style='font-weight:500;'>{{ roomsData.text }}</h2>
+                                    </ng-container>
+                                    <ng-container *ngIf="roomsData.text_type == 'h4' && roomsData.text != ''">
+                                        <h4 class='text-left'>{{ roomsData.text }}</h4><hr>
+                                    </ng-container>
+                                </ng-container> -->
+                                <ng-container *ngFor="let roomText of totalRoom.roomText">
+                                    <h2 class='text-left mb-0 text-capitalize' style='font-weight:500;' *ngIf="roomText.text_type == 'h2' && roomText.text != ''">{{ roomText.text }}</h2>
+                                </ng-container>
+                                <ng-container *ngFor="let roomText of totalRoom.roomText">
+                                    <h4 class='text-left' *ngIf="roomText.text_type == 'h4' && roomText.text != ''">{{ roomText.text }}</h4>
+                                </ng-container><hr>
+                                <ng-container *ngFor="let roomText of totalRoom.roomText">
+                                    <h4 class='text-left' *ngIf="roomText.text_type == 'facility' && roomText.text != ''">{{ roomText.text }}</h4>
+                                </ng-container><hr>
 
-                        <ul class="d-flex list-unstyled flex-wrap mb-0">
-                            <ng-container  *ngFor="let roomsData of roomOne">                               
-                                <li *ngIf="roomsData.text_type == 'li' && roomsData.text != '' ">
-                                    <i class="bi bi-check2-circle"></i>&nbsp;{{ roomsData.text }}
-                                </li>
-                            </ng-container>            
-                        </ul>
-                    </div>
-                    <div class="owle-photo mb-2"> 
-                        <ngx-slick-carousel class="carousel" 
-                        #slickModal="slick-carousel" 
-                            [config]="slideConfig">
-                            <div ngxSlickItem *ngFor="let slide of roomOneImges" class="slide">
-                                <img src="https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
+                                <ul class="d-flex list-unstyled flex-wrap mb-0">                                    
+                                    <ng-container *ngFor="let roomText of totalRoom.roomText">
+                                        <li *ngIf="roomText.text_type == 'li' && roomText.text != ''"><i class="bi bi-check2-circle"></i>&nbsp;{{ roomText.text }}</li>
+                                    </ng-container>             
+                                </ul>
                             </div>
-                        </ngx-slick-carousel>      
-                    </div>
-                    <ng-container *ngFor="let roomsData of roomOne">
-                        <ng-container *ngIf="roomsData.text_type == 'p' && roomsData.text != ''">
-                            <p class='text-left mb-0 text-capitalize' style='font-weight:500;'>{{ roomsData.text }}</p>
-                        </ng-container>
-                    </ng-container>
-                    <div class="owl-btn"> 
-                        <ng-container *ngFor="let roomsData of roomOne">
-                            <ng-container *ngIf="roomsData['text_type'] == 'book_now' && roomsData.text != ''" >
-                                <a href="{{roomsData['text']}}" title="Check Rates" target="_blank">check rates</a>        
-                                <a href="{{roomsData['text']}}" target="_blank" title="Book Now">book now</a> 
-                            </ng-container>                            
-                        </ng-container>              
-                    </div>
-                </div>
-            </div>             
-            <div class="mb-4 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                            <div class="owle-photo mb-2">
+                                <!-- <ngx-slick-carousel class="carousel" 
+                                    #slickModal="slick-carousel" 
+                                        [config]="slideConfig">
+                                    <div ngxSlickItem *ngFor="let roomImg of pagesImg" class="slide"> -->
+                                        <ng-container  *ngFor="let roomImg of pagesImg">
+                                            <ng-container *ngIf="roomImg.page_id == totalRoom['roomId'] && roomImg.img_order == 1">
+                                                <img src="https://www.tuckerbox.com.au/images/{{roomImg['pagename'] | replace}}/{{ roomImg['small_img'] }}" alt="" width="100%">
+                                            </ng-container>  
+                                        </ng-container>
+                                        
+                                                                                  
+                                    <!-- </div>
+                                </ngx-slick-carousel> -->
+                            </div>
+                            <ng-container *ngFor="let roomText of totalRoom.roomText">
+                                <p class='text-left' *ngIf="roomText.text_type == 'p' && roomText.text != ''">{{ roomText.text }}</p>
+                            </ng-container>
+                            <div class="owl-btn"> 
+                                <ng-container *ngFor="let roomText of totalRoom.roomText">
+                                    <a href="{{roomText['text']}}" title="Check Rates" target="_blank" *ngIf="roomText['text_type'] == 'book_now'">check rates</a>        
+                                    <a href="{{roomText['text']}}" target="_blank" title="Book Now" *ngIf="roomText['text_type'] == 'book_now'">book now</a> 
+                                </ng-container>                                              
+                            </div>
+                        </div>
+                    </div> 
+                </ng-container>
+            </ng-container>     
+                   
+            <!-- <div class="mb-4 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
                 <div class='desc-wrap'>
                     <div class="description mb-2">                        
                         <ng-container *ngFor="let roomsData of roomTwo">
@@ -82,7 +96,7 @@
                         #slickModal="slick-carousel" 
                             [config]="slideConfig">
                             <div ngxSlickItem *ngFor="let slide of roomTwoImges" class="slide">
-                                <img src="https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
+                                <img src="https://www.tuckerbox.com.au/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
                             </div>
                         </ngx-slick-carousel>      
                     </div>
@@ -126,7 +140,7 @@
                         #slickModal="slick-carousel" 
                             [config]="slideConfig">
                             <div ngxSlickItem *ngFor="let slide of roomThreeImges" class="slide">
-                                <img src="https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
+                                <img src="https://www.tuckerbox.com.au/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
                             </div>
                         </ngx-slick-carousel>      
                     </div>
@@ -170,7 +184,7 @@
                         #slickModal="slick-carousel" 
                             [config]="slideConfig">
                             <div ngxSlickItem *ngFor="let slide of roomFourImges" class="slide">
-                                <img src="https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
+                                <img src="https://www.tuckerbox.com.au/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
                             </div>
                         </ngx-slick-carousel>      
                     </div>
@@ -214,7 +228,7 @@
                         #slickModal="slick-carousel" 
                             [config]="slideConfig">
                             <div ngxSlickItem *ngFor="let slide of roomFiveImges" class="slide">
-                                <img src="https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
+                                <img src="https://www.tuckerbox.com.au/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
                             </div>
                         </ngx-slick-carousel>      
                     </div>
@@ -232,7 +246,51 @@
                         </ng-container>              
                     </div>
                 </div>
-            </div> 
+            </div>     
+            <div class="mb-4 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                <div class='desc-wrap'>
+                    <div class="description mb-2">                        
+                        <ng-container *ngFor="let roomsData of roomSix">
+                            <ng-container *ngIf="roomsData.text_type == 'h2' && roomsData.text != ''">
+                                <h2 class='text-left mb-0 text-capitalize' style='font-weight:500;'>{{ roomsData.text }}</h2>
+                            </ng-container>
+                            <ng-container *ngIf="roomsData.text_type == 'h4' && roomsData.text != ''">
+                                <h4 class='text-left'>{{ roomsData.text }}</h4><hr>
+                            </ng-container>
+                        </ng-container>
+
+                        <ul class="d-flex list-unstyled flex-wrap mb-0">
+                            <ng-container  *ngFor="let roomsData of roomSix">                               
+                                <li *ngIf="roomsData.text_type == 'li' && roomsData.text != '' ">
+                                    <i class="bi bi-check2-circle"></i>&nbsp;{{ roomsData.text }}
+                                </li>
+                            </ng-container>            
+                        </ul>
+                    </div>
+                    <div class="owle-photo mb-2"> 
+                        <ngx-slick-carousel class="carousel" 
+                        #slickModal="slick-carousel" 
+                            [config]="slideConfig">
+                            <div ngxSlickItem *ngFor="let slide of roomSixImges" class="slide">
+                                <img src="https://www.tuckerbox.com.au/images/{{slide.pagename | replace}}/{{ slide.small_img }}" alt="" width="100%">
+                            </div>
+                        </ngx-slick-carousel>      
+                    </div>
+                    <ng-container *ngFor="let roomsData of roomSix">
+                        <ng-container *ngIf="roomsData.text_type == 'p' && roomsData.text != ''">
+                            <p class='text-left mb-0 text-capitalize' style='font-weight:500;'>{{ roomsData.text }}</p>
+                        </ng-container>
+                    </ng-container>
+                    <div class="owl-btn"> 
+                        <ng-container *ngFor="let roomsData of roomSix">
+                            <ng-container *ngIf="roomsData['text_type'] == 'book_now' && roomsData.text != ''" >
+                                <a href="{{roomsData['text']}}" title="Check Rates" target="_blank">check rates</a>        
+                                <a href="{{roomsData['text']}}" target="_blank" title="Book Now">book now</a> 
+                            </ng-container>                            
+                        </ng-container>              
+                    </div>
+                </div>
+            </div>  -->
         </div>
     </div>
 </section>

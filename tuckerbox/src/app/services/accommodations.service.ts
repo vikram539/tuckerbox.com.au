@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class AccommodationsService {
 
   // All Rooms Data
-  allRoomsDataUrl = "https://swaggersmotorinnyass.com.au/Tuckerbox/workApi/allRoomsData.php";
-  allRoomsImgDataUrl = "https://swaggersmotorinnyass.com.au/Tuckerbox/workApi/allRoomsImgData.php";
+  allRoomsDataUrl = "https://www.tuckerbox.com.au/workApi/allRoomsData.php";
+  allRoomsImgDataUrl = "https://www.tuckerbox.com.au/workApi/allRoomsImgData.php";
 
   constructor(private httpRoom: HttpClient) 
   { }  

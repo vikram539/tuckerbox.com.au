@@ -26,7 +26,7 @@
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
 				<div class="map-location">
 					<ng-container *ngFor="let item of locationPageImgArray">
-						<img *ngIf="item.img_order == 1 && item.img_for_slider == 1" src='https://swaggersmotorinnyass.com.au/Tuckerbox/images/{{LocationRoomName}}/{{ item.small_img }}' alt='' class='img-fluid' />
+						<img *ngIf="item.img_order == 1 && item.img_for_slider == 1" src='https://www.tuckerbox.com.au/images/{{LocationRoomName}}/{{ item.small_img }}' alt='' class='img-fluid' />
 					</ng-container>
 				</div>
 			</div>
@@ -34,14 +34,14 @@
 				<div class="map-location">
 					<ng-container *ngFor="let item of locationPageArray">
 						<h4 *ngIf="item.text_type == 'h4'">{{ item.text }}</h4>
-						<p  *ngIf="item.text_type == 'p'" class='text-left'>{{ item.text }}</p>
+						<p  *ngIf="item.text_type == 'p'" class='text-start'>{{ item.text }}</p>
 					</ng-container>
 					
 					<ul>
 						<ng-container *ngFor="let item of locationPageArray">
 							<li *ngIf="item.text_type == 'li'">
 								<i class='fa fa-check' aria-hidden='true'></i>
-								<label>{{ item.text }}</label>
+								<label>- {{ item.text }}</label>
 							</li>
 						</ng-container>
 					</ul>

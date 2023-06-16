@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { AccommodationsService } from 'src/app/services/accommodations.service';
 import { PagesDataService } from 'src/app/services/pages-data.service';
 
 @Component({
@@ -18,8 +19,13 @@ export class OurMotelComponent {
   tumutvalleymotelImg:any;
   tumutvalleymotelName:any;
 
+  pagesData: any;
+  pagesImg: any;
+  motelListData: any;
+  motelListDataArray: any[] = [];
+  
   slideConfig = { slidesToShow: 1, slidesToScroll: 1 };
-  constructor(public homePageApiData:PagesDataService, public pageTitle: Title) { 
+  constructor(public homePageApiData:PagesDataService, public pageTitle: Title, public roomListData:AccommodationsService,) { 
     homePageApiData.getOurMotelPageDataFun().subscribe((data:any) => { 
       this.pageArrayData = data;
       for(let i = 0; i < data.length; i++){
@@ -50,5 +56,35 @@ export class OurMotelComponent {
          this.tumutvalleymotelImg = data;
          this.tumutvalleymotelName = data[0]['pagename'].replace(/\s/g, '-').toLowerCase()          
         });
+
+        // ourMotelfun
+        this.homePageApiData.ourMotelfun().subscribe((data:any) => { 
+          console.warn(data.length);
+            for(let i = 0; i < data.length; i++){
+              this.motelListDataArray.push({"roomId":data[i]['page_ID'], "roomText":[]});      
+            } 
+      
+            this.homePageApiData.getPagesData().subscribe((data:any) =>{
+              this.pagesData = data;
+      
+              // get rooms data
+              for(let i = 0; i < data.length; i++){
+                var parentPageId =  parseInt(data[i].page_ID);  
+                for(let j = 0; j < this.motelListDataArray.length; j++){
+                  var roomId = parseInt(this.motelListDataArray[j].roomId);  
+                  if(parentPageId == roomId){ 
+                      this.motelListDataArray[j].roomText.push(data[i]);
+                  }
+                }
+              }
+              console.warn(this.motelListDataArray);
+            })
+        })
+    
+    // Room Images
+        this.roomListData.getAllRoomsImgUrlFun().subscribe((data:any) => { 
+          this.pagesImg = data; 
+          console.warn(this.pagesImg) ;   
+        })
   }
 }

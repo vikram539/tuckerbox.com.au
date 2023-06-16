@@ -16,20 +16,25 @@ export class AccommodationComponent {
   roomOne:any = [];
   roomOneImges:any = [];
 
-  roomTwo:any = [];
-  roomTwoImges:any = [];
+  // roomTwo:any = [];
+  // roomTwoImges:any = [];
 
-  roomThree:any = [];
-  roomThreeImges:any = [];
+  // roomThree:any = [];
+  // roomThreeImges:any = [];
 
-  roomFour:any = [];
-  roomFourImges:any = [];
+  // roomFour:any = [];
+  // roomFourImges:any = [];
 
-  roomFive:any = [];
-  roomFiveImges:any = [];
+  // roomFive:any = [];
+  // roomFiveImges:any = [];
 
-  
+  // roomSix:any = [];
+  // roomSixImges:any = [];
 
+  pagesData:any;
+  proDetailData:any;
+  pagesImg:any;
+  roomTypeArray:any[] = [];
   constructor(public httpServices: PagesDataService, public roomListData:AccommodationsService, public pageTitle: Title) 
   {
     
@@ -48,53 +53,33 @@ export class AccommodationComponent {
     })
    
     this.roomListData.getAllRoomsUrlFun().subscribe((data:any) => { 
-      for(let i = 0; i < data.length; i++){
-        if(data[i]['page_ID'] == 9){
-          this.roomOne.push(data[i]);
-        }
-        else if(data[i]['page_ID'] == 10){
-          this.roomTwo.push(data[i]);
-        }
-        else if(data[i]['page_ID'] == 11){
-          this.roomThree.push(data[i]);
-        }
-        else if(data[i]['page_ID'] == 12){
-          this.roomFour.push(data[i]);
-        }
-        else if(data[i]['page_ID'] == 13){
-          this.roomFive.push(data[i]);
-        }
-        else{
-
-        }
-      }
+      console.warn("Room Page data", data.length);
+        for(let i = 0; i < data.length; i++){
+          this.roomTypeArray.push({"roomId":data[i]['page_ID'], "roomText":[]});      
+        } 
+  
+        this.httpServices.getPagesData().subscribe((data:any) =>{
+          this.pagesData = data;
+  
+          // get rooms data
+          for(let i = 0; i < data.length; i++){
+            var parentPageId =  parseInt(data[i].page_ID);  
+            for(let j = 0; j < this.roomTypeArray.length; j++){
+              var roomId = parseInt(this.roomTypeArray[j].roomId);  
+              if(parentPageId == roomId){ 
+                  this.roomTypeArray[j].roomText.push(data[i]);
+              }
+            }
+          }
+          // console.warn(this.roomTypeArray);
+        })
+        
+      // Room Images
+      this.roomListData.getAllRoomsImgUrlFun().subscribe((data:any) => { 
+        this.pagesImg = data; 
+        
+        console.warn(this.pagesImg) ;   
+      })
     })
-
-// Room Images
-    this.roomListData.getAllRoomsImgUrlFun().subscribe((data:any) => { 
-
-      for(let i = 0; i < data.length; i++){
-        if(data[i]['page_id'] == 9){
-          this.roomOneImges.push(data[i]);
-        }
-        else if(data[i]['page_id'] == 10){
-          this.roomTwoImges.push(data[i]);
-        }
-        else if(data[i]['page_id'] == 11){
-          this.roomThreeImges.push(data[i]);
-          // console.warn(this.roomThreeImges)
-        }
-        else if(data[i]['page_id'] == 12){
-          this.roomFourImges.push(data[i]);
-        }
-        else if(data[i]['page_id'] == 13){
-          this.roomFiveImges.push(data[i]);
-        }
-        else{
-
-        }
-      }
-    })
-
   }
 }

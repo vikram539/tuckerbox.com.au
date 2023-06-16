@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class HomeMenuService {
 
-  url = "https://swaggersmotorinnyass.com.au/Tuckerbox/workApi/getHomeMenu.php";
-  commonDataUrl = "https://swaggersmotorinnyass.com.au/Tuckerbox/workApi/getPropertyDetail.php";
-  homeSliderUrl = "https://swaggersmotorinnyass.com.au/Tuckerbox/workApi/getHomeSlider.php";
+  url = "https://www.tuckerbox.com.au/workApi/getHomeMenu.php";
+  commonDataUrl = "https://www.tuckerbox.com.au/workApi/getPropertyDetail.php";
+  homeSliderUrl = "https://www.tuckerbox.com.au/workApi/getHomeSlider.php";
   constructor(public http:HttpClient) {     
   }
   
